@@ -5,7 +5,6 @@
 import json
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import regexp_extract, col, udf, StringType
-from utils import mapper
 
 def mapper(location_data):
     def mapper_(col):
