@@ -12,8 +12,8 @@ def mapper(location_data):
     return udf(mapper_, StringType())
 
 spark = SparkSession.builder.appName("restaurant_job_spark_job").getOrCreate()
-file_path = "hdfs:///tmp/file/source/raw_restaurant_info.csv"
-json_file_path = 'hdfs:///tmp/file/source/location_convert.json'
+file_path = "/tmp/file/source/raw_restaurant_info.csv"
+json_file_path = '/tmp/file/source/location_convert.json'
 
 with open(json_file_path, 'r') as j:
      location_data = json.loads(j.read())
@@ -55,6 +55,6 @@ restaurant = restaurant.select(col("Restaurant Name").alias("restaurant_name"),
 restaurant.show()
 
 #Then we will save it into our HDFS
-restaurant.write.csv("hdfs:///tmp/file/sink/restaurant_info.csv")
+restaurant.write.csv("/tmp/file/sink/restaurant_info.csv")
 
 spark.stop()
