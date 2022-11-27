@@ -65,7 +65,6 @@ restaurant = restaurant.select(col("Restaurant Name").alias("restaurant_name"),
                                 col("Cuisine").alias("cuisine"),
                                 col("Location").alias("location"))
 
-restaurant.show()
 
 #Then we will save it into our HDFS
 restaurant.write.csv("/tmp/file/sink/restaurant_info.csv")
