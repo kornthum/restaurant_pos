@@ -13,10 +13,23 @@ def mapper(location_data):
 
 spark = SparkSession.builder.appName("restaurant_job_spark_job").getOrCreate()
 file_path = "/tmp/file/source/raw_restaurant_info.csv"
-json_file_path = '/tmp/file/source/location_convert.json'
 
-with open(json_file_path, 'r') as j:
-     location_data = json.loads(j.read())
+location_data = {
+    "Hyderabad":"Silom",
+    "Patna":"Sathorn",
+    "Mumbai":"Rama 9",
+    "Jaipur":"Thong Lo",
+    "Agra":"Ekkamai",
+    "Bengaluru":"Ratchadaphisek",
+    "Chennai":"Phaya Thai",
+    "Varanasi":"Bangprom",
+    "Udaipur":"Pinkloa",
+    "Srinagar":"Asoke",
+    "Shimla":"Sukhumvit",
+    "Pune":"Taling chan",
+    "Noida":"Ladkrabang",
+    "Goa":"Thra pra"
+}
 
 restaurant = spark.read.option("header", "true").option("inferSchema", "true")\
     .csv(file_path)\
