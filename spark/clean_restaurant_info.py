@@ -13,8 +13,8 @@ def mapper(location_data):
     return udf(mapper_, StringType())
 
 spark = SparkSession.builder.appName("restaurant_job_spark_job").getOrCreate()
-file_path = "../tmp/file/source/raw_restaurant_info.csv"
-json_file_path = '../tmp/file/source/location_convert.json'
+file_path = "/tmp/file/source/raw_restaurant_info.csv"
+json_file_path = '/tmp/file/source/location_convert.json'
 
 with open(json_file_path, 'r') as j:
      location_data = json.loads(j.read())
