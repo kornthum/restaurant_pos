@@ -19,8 +19,7 @@ strmDF = spark \
 split_col = split(strmDF['order'], ' ')
 strmDF = strmDF.withColumn('order_menu', split_col.getItem(0)) \
 .withColumn('order_price', split_col.getItem(1).cast('integer')) \
-.withColumn("order_timestamp",from_unixtime(col("order_timestamp"),'dd-MM-yyyy HH:mm:ss').cast('string')) \
-.drop('customer_order')
+.withColumn("order_timestamp",from_unixtime(col("order_timestamp"),'dd-MM-yyyy HH:mm:ss').cast('string'))
 
 
 query = strmDF \
