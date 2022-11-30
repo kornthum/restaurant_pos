@@ -4,7 +4,7 @@ declare -a Bansi_Vihar_orders=("espresso 40" "cappucino 50" "mocha 50")
 declare -a Delhi_Highway_orders=("noodle 40" "noodle jumbo 45")
 declare -a The_Rajput_Room_orders=("krapao 65" "mukrob 70")
 
-for i in $(seq 1 10)
+for i in $(seq 1 100)
 do
     while true
     do
@@ -43,6 +43,6 @@ do
     else
         echo "$id|$restaurant|${The_Rajput_Room_orders[$RANDOM%${#The_Rajput_Room_orders[@]}]}|$timestamp|POS_THAI" >> ./source/hdfs/order_${timestamp}.txt
     fi
-    sleep 30
+    sleep 10
 done
    
