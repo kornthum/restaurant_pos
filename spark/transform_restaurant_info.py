@@ -13,7 +13,6 @@ def mapper(location_data):
 
 spark = SparkSession.builder.appName("restaurant_job_spark_job").getOrCreate()
 file_path = "/tmp/file/source/raw_less_restaurant_info.csv"
-# file_path = "../data/raw_less_restaurant_info.csv"
 
 location_data = {
     "Hyderabad":"Silom",
