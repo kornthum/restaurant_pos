@@ -33,15 +33,15 @@ do
    echo $restaurant
     if [[ $restaurant == "Deccan Pavilion" ]]
     then
-        echo "$id|$restaurant|${Deccan_Pavilion_orders[$RANDOM%${#Deccan_Pavilion_orders[@]}]}|$timestamp|OC" >> /source/hdfs/order_${timestamp}.txt
+        echo "$id|$restaurant|${Deccan_Pavilion_orders[$RANDOM%${#Deccan_Pavilion_orders[@]}]}|$timestamp|OC" >> ./source/hdfs/order_${timestamp}.txt
     elif [[ $restaurant == "Bansi Vihar" ]]
     then
-        echo "$id|$restaurant|${Bansi_Vihar_orders[$RANDOM%${#Bansi_Vihar_orders[@]}]}|$timestamp|FoodST" >> /source/hdfs/order_${timestamp}.txt
+        echo "$id|$restaurant|${Bansi_Vihar_orders[$RANDOM%${#Bansi_Vihar_orders[@]}]}|$timestamp|FoodST" >> ./source/hdfs/order_${timestamp}.txt
     elif [[ $restaurant == "Delhi Highway" ]]
     then
-        echo "$id|$restaurant|${Delhi_Highway_orders[$RANDOM%${#Delhi_Highway_orders[@]}]}|$timestamp|WanPOS" >>/source/hdfs/order_${timestamp}.txt
+        echo "$id|$restaurant|${Delhi_Highway_orders[$RANDOM%${#Delhi_Highway_orders[@]}]}|$timestamp|WanPOS" >> ./source/hdfs/order_${timestamp}.txt
     else
-        echo "$id|$restaurant|${The_Rajput_Room_orders[$RANDOM%${#The_Rajput_Room_orders[@]}]}|$timestamp|POS_THAI" >> /source/hdfs/order_${timestamp}.txt
+        echo "$id|$restaurant|${The_Rajput_Room_orders[$RANDOM%${#The_Rajput_Room_orders[@]}]}|$timestamp|POS_THAI" >> ./source/hdfs/order_${timestamp}.txt
     fi
     sleep 30
 done
