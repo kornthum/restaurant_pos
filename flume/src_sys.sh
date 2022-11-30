@@ -33,17 +33,16 @@ do
    echo $restaurant
     if [[ $restaurant == "Silom" ]]
     then
-        
-        echo "$id|${Silom_orders[$RANDOM%${#Silom_orders[@]}]}|$timestamp|OC" >> ../data/flume/source/hdfs/order_${timestamp}.txt
+        echo "$id|$restaurant|${Silom_orders[$RANDOM%${#Silom_orders[@]}]}|$timestamp|OC" >> ../data/flume/source/hdfs/order_${timestamp}.txt
     elif [[ $restaurant == "Sathorn" ]]
     then
-        echo "$id|${Sathorn_orders[$RANDOM%${#Sathorn_orders[@]}]}|$timestamp|FoodST" >> ..data/kafka/source/hdfs/order_${timestamp}.txt
+        echo "$id|$restaurant|${Sathorn_orders[$RANDOM%${#Sathorn_orders[@]}]}|$timestamp|FoodST" >> ..data/flume/source/hdfs/order_${timestamp}.txt
     elif [[ $restaurant == "Rama_9" ]]
     then
-        echo "$id|${Rama_9_orders[$RANDOM%${#Rama_9_orders[@]}]}|$timestamp|WanPOS" >> ../data/kafka/source/hdfs/order_${timestamp}.txt
+        echo "$id|$restaurant|${Rama_9_orders[$RANDOM%${#Rama_9_orders[@]}]}|$timestamp|WanPOS" >> ../data/flume/source/hdfs/order_${timestamp}.txt
     else
-        echo "$id|${Thong_Lo_orders[$RANDOM%${#Thong_Lo_orders[@]}]}|$timestamp|POS_THAI" >> ../data/kafka/source/hdfs/order_${timestamp}.txt
+        echo "$id|$restaurant|${Thong_Lo_orders[$RANDOM%${#Thong_Lo_orders[@]}]}|$timestamp|POS_THAI" >> ../data/flume/source/hdfs/order_${timestamp}.txt
     fi
-    sleep 20
+    sleep 30
 done
    
