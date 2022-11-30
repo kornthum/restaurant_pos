@@ -12,23 +12,13 @@ def mapper(location_data):
     return udf(mapper_, StringType())
 
 spark = SparkSession.builder.appName("restaurant_job_spark_job").getOrCreate()
-file_path = "/tmp/file/source/raw_restaurant_info.csv"
+file_path = "/tmp/file/source/raw_less_restaurant_info.csv"
 
 location_data = {
     "Hyderabad":"Silom",
     "Patna":"Sathorn",
     "Mumbai":"Rama 9",
-    "Jaipur":"Thong Lo",
-    "Agra":"Ekkamai",
-    "Bengaluru":"Ratchadaphisek",
-    "Chennai":"Phaya Thai",
-    "Varanasi":"Bangprom",
-    "Udaipur":"Pinkloa",
-    "Srinagar":"Asoke",
-    "Shimla":"Sukhumvit",
-    "Pune":"Taling chan",
-    "Noida":"Ladkrabang",
-    "Goa":"Thra pra"
+    "Jaipur":"Thong Lo"
 }
 
 restaurant = spark.read.option("header", "true").option("inferSchema", "true")\
