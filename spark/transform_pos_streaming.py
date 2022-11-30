@@ -8,7 +8,7 @@ from pyspark.sql.types import *
 spark = SparkSession.builder.appName("strm_spark_job").enableHiveSupport().getOrCreate()
 spark.conf.set("spark.sql.streaming.checkpointLocation", "/tmp/checkpoints")
 
-userSchema = StructType().add("id", "integer").add("restaurant_name", "str").add("order", "string").add("order_timestamp", "integer").add("pos_type", "str")
+userSchema = StructType().add("id", "integer").add("restaurant_name", "string").add("order", "string").add("order_timestamp", "integer").add("pos_type", "string")
 
 strmDF = spark \
     .readStream \
