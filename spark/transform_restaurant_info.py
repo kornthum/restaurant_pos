@@ -12,7 +12,8 @@ def mapper(location_data):
     return udf(mapper_, StringType())
 
 spark = SparkSession.builder.appName("restaurant_job_spark_job").getOrCreate()
-file_path = "/tmp/file/source/raw_less_restaurant_info.csv"
+# file_path = "/tmp/file/source/raw_less_restaurant_info.csv"
+file_path = "../data/raw_less_restaurant_info.csv"
 
 location_data = {
     "Hyderabad":"Silom",
@@ -42,7 +43,7 @@ restaurant = restaurant.withColumn('rating', regexp_extract(col('Rating'), '(^[\
 
 # 3. Number of rating: I will select only value
 # Ex. 953 reviews -> 953
-restaurant = restaurant.withColumn('Number of Rating', regexp_extract(col('Rating'), '(\d*)(\W\D*)', 1))
+restaurant = restaurant.withColumn('Number of Ratings', regexp_extract(col('Number of Ratings'), '(\d*)(\W\D*)', 1))
 
 # 4. Location: I will map to my own location
 # Ex. Hyderabad -> Siam
@@ -57,6 +58,6 @@ restaurant = restaurant.select(col("Restaurant Name").alias("restaurant_name"),
 
 
 #Then we will save it into our HDFS
-restaurant.write.csv("/tmp/file/sink/restaurant_info.csv")
-
+# restaurant.write.csv("/tmp/file/sink/restaurant_info.csv")
+restaurant.show()
 spark.stop()
