@@ -1,6 +1,6 @@
 CREATE TABLE default.transactions(
    customer_id         int
-   restaurant_name  string
+  ,restaurant_name  string
   ,customer_order  	string
   ,order_timestamp	bigint
   ,pos_type         string
